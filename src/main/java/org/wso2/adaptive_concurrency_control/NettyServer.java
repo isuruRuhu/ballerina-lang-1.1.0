@@ -1,7 +1,8 @@
-package com.nilushan.adaptive_concurrency_control;
+package org.wso2.adaptive_concurrency_control;
 
 import com.codahale.metrics.Timer;
 
+import org.wso2.adaptive_concurrency_control.tomcat.StandardThreadExecutor;
 import io.netty.bootstrap.ServerBootstrap;
 import io.netty.channel.ChannelFuture;
 import io.netty.channel.ChannelInitializer;
@@ -18,10 +19,10 @@ public class NettyServer {
 
 	int port;
 	String test;
-	CustomThreadPool executingPool;
+	StandardThreadExecutor executingPool;
 	static Timer latencyTimer;
 
-	public NettyServer(int portNum, String testName, CustomThreadPool pool, Timer latencyTimer) {
+	public NettyServer(int portNum, String testName, StandardThreadExecutor pool, Timer latencyTimer) {
 		this.port = portNum;
 		this.test = testName;
 		this.executingPool = pool;
